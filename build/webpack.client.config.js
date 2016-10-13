@@ -3,7 +3,7 @@ const base = require('./webpack.base.config')
 const vueConfig = require('./vue-loader.config')
 
 const config = Object.assign({}, base, {
-  plugins: base.plugins.concat([
+  plugins: (base.plugins || []).concat([
     // strip comments in Vue code
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
@@ -28,7 +28,8 @@ if (process.env.NODE_ENV === 'production') {
     stylus: ExtractTextPlugin.extract({
       loader: "css-loader!stylus-loader",
       fallbackLoader: "vue-style-loader" // <- this is a dep of vue-loader
-    })
+    }),
+    css: ExtractTextPlugin.extract("css"),
   }
 
   config.plugins.push(
