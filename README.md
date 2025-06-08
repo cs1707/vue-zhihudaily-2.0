@@ -40,3 +40,5 @@ npm run build
 # serve in production mode
 npm start
 ```
+
+[![Powered by DartNode](https://dartnode.com/branding/DN-Open-Source-sm.png)](https://dartnode.com "Powered by DartNode - Free VPS for Open Source")
